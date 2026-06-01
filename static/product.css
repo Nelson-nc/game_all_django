@@ -1,0 +1,144 @@
+div.search_div {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 1em;
+}
+
+div.search_div form input[type=search] {
+    width: 60%;
+    height: 38px;
+    padding: 0 1em;
+    border: none;
+    border-top-left-radius: 12px;
+    border-bottom-left-radius: 12px;
+    font-size: 18px;
+}
+
+div.search_div form input[type=submit] {
+    width: 10%;
+    height: 38px;
+    color: white;
+    background-color: rgb(3, 156, 3);
+    border: none;
+    border-top-right-radius: 12px;
+    border-bottom-right-radius: 12px;
+    font-size: 18px;
+}
+
+div.platform_link {
+    text-align: center;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(10px, 1fr));
+    gap: 8px;
+}
+
+div.platform_link a {
+    color: white;
+    font-size: 10px;
+    word-wrap: normal;
+}
+
+h2.platform_tag {
+    margin: 0 1em;
+}
+
+div.container {
+    padding: 0 2em;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1em;
+}
+
+div.card {
+    display: grid;
+    gap: 0.25em;
+    text-align: center;
+    border: 1px solid white;
+    padding: 0.75em;
+    border-radius: 12px;
+}
+
+div.card div.info_div p{
+    opacity: 0.8;
+    font-size: 12px;
+}
+
+div.card div.info_div div.platform b {
+    font-size: 11px;
+}
+
+div.card div.info_div div.platform small {
+    background-color: rgb(3, 156, 3);
+    color: white;
+    font-size: 10px;
+    padding: 3px 6px;
+    border-radius: 12px;
+}
+
+/* -----------------Detail----------------- */
+
+div.detail_image {
+    place-items: center;
+    text-align: center;
+}
+
+div.detail_product {
+    position: relative;
+    height: 30px;
+    margin: 0.5em 2em;
+    display: flex;
+}
+h1.detail_name {
+    margin: 0.5em 0;
+}
+
+small.detail_price {
+    position: absolute;
+    font-size: medium;
+    line-height: 70px;
+    right: 4em;
+}
+
+div.cart {
+    margin: 2em;
+}
+
+div.cart p a {
+    text-decoration: underline rgb(3, 156, 3);
+}
+
+div.cart a.btn_cart {
+    background-color: rgb(3, 156, 3);
+    padding: 10px;
+    border-radius: 12px;
+    border: 1px solid white;
+}
+
+div.description {
+    margin: 0 2em;
+    display: flex;
+    gap: 0.25em;
+}
+
+div.description p.descript {
+    margin: 0.5px 1em;
+    word-break: break-all;
+    font-size: 14px;
+    opacity: 0.8;
+}
+
+div.info {
+    margin: 1em 2em;
+}
+
+div.info div.platform b {
+    font-size: 11px;
+}
+
+div.info div.platform small {
+    background-color: rgb(3, 156, 3);
+    color: white;
+    font-size: 10px;
+    padding: 3px 6px;
+    border-radius: 12px;
+}

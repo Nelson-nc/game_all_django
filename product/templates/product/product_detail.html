@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'product.css' %}">
+{% endblock %}
+{% block title %}{{ product.name }}{% endblock %}
+
+{% block main %}
+    <div class="detail_image">
+        <img src="{{ product.image.url }}" alt="image for {{ product.title }}" width="460" height="280" />
+    </div>
+
+    <div class="detail_product">
+        <h1 class="detail_name">{{ product.name }}</h1>
+        <small class="detail_price">${{ product.price }}</small>
+    </div>
+
+    <div class="info">
+        <div class="platform">
+            <b>Platforms:</b>
+            {% for platform in product.platforms.all %}
+                <small>{{ platform }}</small>
+            {% endfor %}
+        </div>
+        {% if product.stock_quantity < 10 %}
+            <small>Stock Left: {{ product.stock_quantity }}</small>
+        {% endif %}
+    </div>
+
+    <div class="cart">
+        {% if in_cart %}
+            <p>Item Already in <a href="{% url 'account:dashboard' %}">Cart</a></p>
+        {% else %}
+            <a href="{% url "product:add_to_cart" product.slug %}" class="btn_cart">Add To Cart</a>
+        {% endif %}
+    </div>
+
+    <div class="description">
+        <h3>Description: </h3>
+        <p class="descript">{{ product.description|title }}</p>
+    </div>
+{% endblock %}

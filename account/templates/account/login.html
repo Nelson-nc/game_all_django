@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'account.css' %}">
+{% endblock %}
+{% block title %}Login{% endblock %}
+
+{% block main %}
+    <section class="auth_container">
+        <h3>Sign In</h3>
+
+        <form method="post">
+            {% csrf_token %}
+
+            <div class="form-input">
+                {{ form.username.label }}:
+                {{ form.username }}
+            </div>
+
+            <div class="form-input">
+                {{ form.password.label }}:
+                {{ form.password }}
+            </div>
+
+            {% if form.non_field_errors %}
+                <div class="errors" id="errors">
+                    {% for error in form.non_field_errors %}
+                        <p class="error_msg">{{ error }}</p>
+                    {% endfor %}
+                </div>
+            {% endif %}
+
+            <div>
+                <button type="submit" class="btn submit">Login</button>
+            </div>
+        </form>
+
+        <p>Don't have an account yet. <a href="{% url 'account:register' %}">sign up</a></p>
+    </div>
+{% endblock %}
+
+{% block scripts %}
+    <script>
+        var errors = document.getElementById("errors");
+
+        setTimeout(() => {
+            errors.remove()
+        }, 10000)
+    </script>
+{% endblock scripts %}

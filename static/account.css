@@ -1,0 +1,215 @@
+section.user_info {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    margin-bottom: 2em;
+}
+
+.btn {
+    padding: 10px;
+    border: 1px solid rgb(3, 156, 3);
+    background: none;
+    color: white;
+    border-radius: 12px;
+}
+.btn:hover {
+    background-color: rgb(3, 156, 3);
+    border-radius: 12px;
+}
+
+.foot-btn {
+    padding: 10px;
+    border: 1px solid rgb(9, 9, 12);
+    border-radius: 12px;
+    text-align: center;
+}
+
+.foot-btn:hover {
+    background-color: rgb(9, 9, 12);
+    border-radius: 12px;
+}
+
+section.user_info a.btn {
+    padding: 10px;
+    background-color: none;
+    border: 1px solid rgb(3, 156, 3);
+    border-radius: 12px;
+    width: 8%;
+    text-align: center;
+    margin: 1em 0;
+}
+
+section.cart {
+    display: grid;
+    gap: 1.5em;
+}
+
+td form input.quantity {
+    padding: 5px;
+    background-color: white;
+    color: rgb(9, 9, 12);
+    border: none;
+    border-radius: 12px;
+    text-align: center;
+}
+
+td form input[type=submit] {
+    padding: 10px;
+    border: 1px solid rgb(3, 156, 3);
+    border-radius: 12px;
+    background-color: rgb(9, 9, 12);
+    color: white;
+}
+
+section.cart {
+    overflow-x: auto;
+    margin: 25px 0;
+}
+
+table.cart-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9em;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    border-radius: 8px 8px 0 0;
+    overflow: hidden;
+}
+
+table.cart-table caption {
+    padding: 10px;
+    font-weight: bold;
+    text-align: left;
+    font-size: 32px;
+}
+
+table.cart-table thead tr {
+    background-color: rgb(3, 156, 3);
+    color: white;
+    text-align: left;
+}
+
+table.cart-table th,
+table.cart-table td {
+    padding: 12px 15px;
+}
+
+/* table.cart-table tbody tr:nth-child(even) {
+    background-color: rgb(3, 156, 3);
+} */
+
+table.cart-table tbody tr:hover {
+    /* background-color: rgb(3, 156, 3); */
+    cursor: pointer;
+}
+
+table.cart-table tfoot tr {
+    font-weight: bold;
+    background-color: rgb(3, 156, 3);
+    border-top: 2px solid rgb(3, 156, 3);
+    border-bottom: 2px solid rgb(3, 156, 3);
+}
+
+
+section.order {
+    overflow-x: auto;
+    margin: 25px 0;
+}
+
+table.order-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9em;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    border-radius: 8px 8px 0 0;
+    overflow: hidden;
+}
+
+table.order-table caption {
+    padding: 10px;
+    font-weight: bold;
+    text-align: left;
+    font-size: 32px;
+}
+
+table.order-table thead tr {
+    background-color: rgb(3, 156, 3);
+    color: white;
+    text-align: left;
+}
+
+table.order-table th,
+table.order-table td {
+    padding: 12px 15px;
+}
+
+/* table.order-table tbody tr:nth-child(even) {
+    background-color: rgb(3, 156, 3);
+} */
+
+table.order-table tbody tr:hover {
+    /* background-color: rgb(3, 156, 3); */
+    cursor: pointer;
+}
+
+table.order-table tfoot tr {
+    font-weight: bold;
+    background-color: rgb(3, 156, 3);
+    border-top: 2px solid rgb(3, 156, 3);
+    border-bottom: 2px solid rgb(3, 156, 3);
+}
+
+section.auth_container {
+    width: 100%;
+    display: grid;
+    gap: 1em;
+    place-content: center;
+    text-align: center;
+}
+
+section.auth_container form {
+    width: 100%;
+    display: grid;
+    gap: 1em;
+}
+
+div.form-input {
+    display: grid;
+    gap: 0.5em;
+    text-align: left;
+}
+
+div.form-input input {
+    width: 100%;
+    height: 34px;
+    border: none;
+    border-radius: 12px;
+    padding: 0 10px;
+}
+
+section.auth_container div button.submit{
+    width: 40%;
+    margin-top: 1em;
+}
+
+section.auth_container p {
+    margin: 2em 0;
+    font-size: 14px;
+}
+
+section.auth_container p a {
+    text-decoration: underline rgb(3, 156, 3);
+}
+
+p.error_msg {
+    padding: 8px;
+    background-color: rgb(252, 133, 133);
+    color: red;
+    font-size: 8px;
+}
+
+div.input_group {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1em;
+    width: 100%;
+}

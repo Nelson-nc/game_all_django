@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'account.css' %}">
+{% endblock %}
+{% block title %}Register{% endblock %}
+
+{% block main %}
+    <section class="auth_container">
+        <h3>Sign Up</h3>
+
+        <form method="post">
+            {% csrf_token %}
+            <div class="form-input">
+                <label for="first_name">First Name: </label>
+                <input type="text" name="first_name" id="first_name" {% if data %} value="{{ data.first_name }}" {% endif %} required>
+            </div>
+
+            <div class="form-input">
+                <label for="last_name">Last Name: </label>
+                <input type="text" name="last_name" id="last_name" {% if data %} value="{{ data.last_name }}" {% endif %} required>
+            </div>
+
+            <div class="form-input">
+                <label for="username">Username: </label>
+                <input type="text" name="username" {% if data %} value="{{ data.username }}" {% endif %} id="username" required>
+            </div>
+
+            <div class="form-input">
+                <label for="email">Email: </label>
+                <input type="email" name="email" {% if data %} value="{{ data.email }}" {% endif %} id="email" required>
+            </div>
+
+            <div class="form-input">
+                <label for="password">Password: </label>
+                <input type="password" name="password" id="password" required>
+            </div>
+    
+            <div class="form-input">
+                <label for="password_confirm">Password Confirm: </label>
+                <input type="password" name="password_confirm" id="password_confirm" required>
+            </div>
+
+            <div class="errors" id="errors">
+                 {% if errors %}
+                    {% for error in errors %}
+                        <p class="error_msg">{{ error }}</p>
+                    {% endfor %}
+                {% endif %}
+            </div>
+
+            <div>
+                <button type="submit" class="btn submit">Register</button>
+            </div>
+        </form>
+            
+        <p>Already have an account <a href="{% url 'account:login' %}">sign in</a></p>
+    </section>
+{% endblock %}
+
+{% block scripts %}
+    <script>
+        var errors = document.getElementById("errors");
+
+        setTimeout(() => {
+            errors.remove()
+        }, 10000)
+    </script>
+{% endblock scripts %}

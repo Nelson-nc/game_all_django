@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'product.css' %}">
+{% endblock %}
+{% block title %}Products{% endblock %}
+
+{% block main %}
+    <div class="search_div">
+        <form method="get">
+            <input type="search" name="name" placeholder="Search">
+            <input type="submit" value="search">
+        </form>
+    </div>
+
+    <div class="platform_link">
+        <a href="{% url 'product:product_list' %}">All</a>
+        {% for platform in platforms %}
+            <a href="{% url 'product:platform_product' platform.slug %}">{{ platform.name }}</a>
+        {% endfor %}
+    </div>
+
+    {% if platform_tag %}
+        <h2 class="platform_tag">Products: Platform "{{ platform_tag }}"</h2>
+    {% else %}
+        <h2 class="platform_tag">Products: All</h2>
+    {% endif %}
+
+    <div class="container">
+        {% for product in products %}
+            <div class="card">
+                <div class="img_div">
+                    <img src="{{ product.image.url }}" alt="image for {{ product.name }}" width="200" height="100" />
+                </div>
+                <div class="info_div">
+                    <h3>
+                        <a href="{% url 'product:product_detail' product.slug %}">{{ product.name }}</a>
+                    </h3>
+                    <p>${{ product.price }}</p>
+                    <div class="platform">
+                        <b>Platform:</b> {% for platform in product.platforms.all %} <small>{{ platform.name }}</small> {% endfor %}
+                    </div>
+                    {% if product.stock_quantity < 10 %}
+                        <small>In Stock: {{ product.stock_quantity }}</small>
+                    {% endif %}
+                </div>
+            </div>
+        {% empty %}
+            <p>No Product Yet.</p>
+        {% endfor %}
+    </div>
+{% endblock %}

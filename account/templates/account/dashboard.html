@@ -1,0 +1,91 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'account.css' %}">
+{% endblock %}
+{% block title %}Dashboard {{ user.username }}{% endblock %}
+
+{% block main %}
+    <section class="user_info">
+        <p>First Name: {{ user.first_name }}</p>
+        <p>Last Name: {{ user.last_name }}</p>
+        <p>Username: {{ user.username }}</p>
+        <p>Email: {{ user.email }}</p>
+        {% comment %}<a href="{% url '' %}"></a>{% endcomment %}
+        <a href="#" class="btn">Edit</a>
+    </section>
+
+    <section class="cart">
+        <table class="cart-table">
+            <caption>Cart</caption>
+            <thead>
+                <tr>
+                    <th>Product</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th>Total</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in user.cart.cart_item.all %}
+                    <tr>
+                        <td>{{ item.product }}</td>
+                        <td>${{ item.product.price }}</td>
+                        <td>
+                            <form action="{% url 'product:item_inc' item.id %}" method="post">
+                                {% csrf_token %}
+                                <input type="number" value={{ item.quantity }} class="quantity" disabled />
+                                <input type="submit" name="cart_opration" value="+">
+                                <input type="submit" name="cart_opration" value="-">
+                            </form>
+                        </td>
+                        <td>${{ item.get_price }}</td>
+                        <td>
+                            <a href="{% url 'product:item_remove' item.id %}" class="btn">Remove</a>
+                        </td>
+                    </tr>
+                {% empty %}
+                    <p>No item in cart. <a href="{% url 'product:product_list' %}">Explore</a></p>
+                {% endfor %}
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="2">Total Amount</td>
+                    <td>${{ total }}</td>
+                    <td>
+                        <a href="{% url 'product:clear_cart' %}" class="foot-btn">Clear Cart</a>
+                    </td>
+                    <td><a href="{% url 'order:checkout' %}" class="foot-btn">Order ${{ total }}</a></td>
+                </tr>
+            </tfoot>
+        </table>
+    </section>
+
+    <section class="order">
+        <table class="order-table">
+            <caption>Orders</caption>
+            <thead>
+                <th>Items</th>
+                <th>Total</th>
+                <th>Status</th>
+                <th>Date</th>
+            </thead>
+            <tbody>
+                {% for order in user.order.all %}
+                    <tr>
+                        <td>
+                            {% for item in order.order_item.all %}
+                                <small>{{ item.product.name|title }}: {{ item.quantity }}</small>
+                            {% endfor %}
+                        </td>
+                        <td>${{ order.total_amount }}</td>
+                        <td>{{ order.status|upper }}</td>
+                        <td>{{ order.created_on }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </section>
+{% endblock %}

@@ -1,0 +1,66 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-weight: 400;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+body {
+    background-color: rgb(9, 9, 12);
+    color: white;
+    display: grid;
+    gap: 2em;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+}
+
+header {
+    background-color: rgb(3, 156, 3);
+    height: 60px;
+    line-height: 60px;
+    padding: 0 2em;
+}
+
+nav {
+    display: flex;
+    position: relative;
+}
+
+nav div.links {
+    position: absolute;
+    right: 0;
+    display: flex;
+    gap: 1em;
+}
+
+main {
+    display: grid;
+    gap: 1em;
+    place-items: left;
+    padding: 0.5em;
+}
+
+.alart-msg {
+    padding: 10px 12px;
+    transition: opacity 0.5s ease, margin 0.5s ease;
+    opacity: 1;
+}
+
+.alart-msg-success {
+    background-color: rgb(89, 200, 89);
+    opacity: 0.6;
+}
+
+.alart-msg-error {
+    background-color: rgb(216, 85, 85);
+    opacity: 0.6;
+}
+
+.alart-msg-warn {
+    background-color: rgb(248, 211, 91);
+    opacity: 0.6;
+}

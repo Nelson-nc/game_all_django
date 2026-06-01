@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'order.css' %}">
+{% endblock %}
+{% block title %}Checkout Order{% endblock %}
+
+{% block main %}
+    <div class="container">
+        {% comment %} <h2>Order</h2> {% endcomment %}
+        <fieldset>
+            <legend align="center">Order</legend>
+            <form method="post">
+                {% csrf_token %}
+                <label for="amount">GameBank Payment:</label>
+                <input type="number" id="total" value="{{ total }}" disabled>
+
+                <div>
+                    <button type="submit" class="btn success">Checkout</button>
+                    <a href="{% url 'account:dashboard' %}" class="btn danger">Cancle</a>
+                </div>
+            </form>
+        </fieldset>
+    </div>
+{% endblock %}
