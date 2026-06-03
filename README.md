@@ -34,9 +34,16 @@ cd game_all_django
 ```
 2. Set up a virtual env
 ```sh
-python -m venv venv
+python -m venv .venv
 
-./venv/Scripts/activate
+# for Windows(CMD)
+.venv\Scripts\activate.bat
+
+# for Windows(Powershell)
+.venv\Scripts\activate.ps1
+
+# for macOS and linux
+source .venv/bin/activate
 ```
 3. Install dependencies
 ```sh
